@@ -1,0 +1,29 @@
+use excelr01;
+
+create table ola_cus
+(
+CID INT PRIMARY KEY,
+CNAME VARCHAR(50) NOT NULL,
+EMAIL_ID VARCHAR(50) UNIQUE NOT NULL,
+PHNO BIGINT CHECK(LENGTH(PHNO)=10) UNIQUE NOT NULL
+);
+
+INSERT INTO ola_cus
+VALUES
+(1,'ARUN',"ARUN@GMAIL.COM",9878896987);
+
+select * from ola_cus;
+
+CREATE TABLE cust
+(
+PID INT PRIMARY KEY,
+PNAME VARCHAR(50) NOT NULL,
+PRICE DECIMAL(10,2),
+CID INT,
+constraint CID_FFFK FOREIGN KEY(CID) references ola_cus(CID)
+);
+
+drop table ola_cus;
+
+
+
